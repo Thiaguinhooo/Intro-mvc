@@ -1,21 +1,19 @@
-class AlnuoModel {
+class AlunoModel {
     constructor({ nome, _id, notas } = { notas: {} }) {
         this.nome = nome
-        this._id = _id !== undefined ? _id : this.generate()
-        this.notas = { ...notas }
+        this._id = _id !== undefined ? _id : this.generateId();
+        this.notas = {...notas}
         this.media = {}
 
-
         for (let materia in this.notas) {
-            thismedia[materia] = average(...this.notas[materia])
+            this.media[materia] = average(...this.notas[materia])
         }
     }
 
-
     generateId() {
-        AlnuoModel.maxId += 1
-        return AlnuoModel.maxId
+        AlunoModel.maxId += 1
+        return AlunoModel.maxId
     }
-
 }
-AlnuoModel.maxId = 0
+
+AlunoModel.maxId = 0
