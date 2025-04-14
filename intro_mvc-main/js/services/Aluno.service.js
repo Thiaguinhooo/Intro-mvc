@@ -1,4 +1,6 @@
-class AlunoService {
+import { AlunoModel } from '../models/Aluno.model.js'
+
+export class AlunoService {
 	constructor() {
 		this.alunos = []
 		this.updateListAlunosFromLocalStorage()
@@ -27,6 +29,10 @@ class AlunoService {
 
 	searchById(id) {
 		return this.alunos.find(aluno => aluno._id === id)
+	}
+
+	serach(nome) {
+		return this.alunos.filter(aluno => aluno.nome.toLowerCase().includes(nome.toLowerCase()))
 	}
 
 	updateLocalStorage() {
